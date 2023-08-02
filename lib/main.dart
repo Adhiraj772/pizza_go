@@ -3,6 +3,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:pizza_go/helpers/Middle.dart';
 import 'package:pizza_go/helpers/footer.dart';
+import 'package:pizza_go/providers/authentication.dart';
+import 'package:pizza_go/providers/calculations.dart';
 import 'package:pizza_go/services/ManageData.dart';
 import 'package:pizza_go/views/splash_screen.dart';
 import 'package:provider/provider.dart';
@@ -21,6 +23,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(providers: [
+      ChangeNotifierProvider.value(value: Calculations()),
+      ChangeNotifierProvider.value(value: Authentication()),
       ChangeNotifierProvider.value(value: Headers()),
       ChangeNotifierProvider.value(value:MiddleHelpers()),
       ChangeNotifierProvider.value(value: ManageData()),
